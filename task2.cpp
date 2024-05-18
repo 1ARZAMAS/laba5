@@ -77,8 +77,13 @@ int main() {
             queue.enqueue(duration, ticketNumber);
             ticketNumber++;
         } else if (command == "DISTRIBUTE") {
-            queue.distribute();
-            break;
+            if (ticketNumber != 1) {
+                queue.distribute();
+                break;
+            } else{
+                cout << "Ошибка! Вы не добавили никого в очередь!" << endl;
+                break;
+            }
         } else if (command == "exit"){
             return 0;
         }
